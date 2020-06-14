@@ -1,5 +1,43 @@
-# myproj
+## Current
 
+This works only after explicitly (and ironically) disabling stack's own nix support, with:
+
+``` yaml
+# stack.yaml
+resolver: lts-16.0
+system-ghc: true
+install-ghc: false
+nix:
+  enable: false
+```
+
+``` sh
+$ git clone git@github.com:codygman/haskell-nix-stack-workflow.git
+$ git checkout a53d2278caf56e4d601530708ea37eac2335d7c4
+$ nix build -f . myproj.components.library
+trace: To make this a fixed-output derivation but not materialized, set `stack-sha256` to the output of /nix/store/v342rl2h6r4sdwy6nh9wyv2bfkzacaq8-calculateSha
+trace: To materialize the output entirely, pass a writable path as the `materialized` argument and pass that path to /nix/store/48yg4aykx3ygvhk1kxn1r7bl0k8s6hib-generateMaterialized
+trace: Cleaning component source not supported for hpack package: myproj-0.1.0.0
+[nix-shell]$ stack ghci
+Using main module: 1. Package `myproj' component myproj:exe:myproj-exe with main-is file: /tmp/haskell-nix-stack-workflow/app/Main.hs
+Building all executables for `myproj' once. After a successful build of all of them, only specified executables will be rebuilt.
+myproj> configure (lib + exe)
+Configuring myproj-0.1.0.0...
+myproj> initial-build-steps (lib + exe)
+The following GHC options are incompatible with GHCi and have not been passed to it: -threaded
+Configuring GHCi with the following packages: myproj
+GHCi, version 8.8.3: https://www.haskell.org/ghc/  :? for help
+[1 of 2] Compiling Lib              ( /tmp/haskell-nix-stack-workflow/src/Lib.hs, interpreted )
+[2 of 2] Compiling Main             ( /tmp/haskell-nix-stack-workflow/app/Main.hs, interpreted )
+Ok, two modules loaded.
+Loaded GHCi configuration from /run/user/1000/haskell-stack-ghci/9962e459/ghci-script
+*Main Lib> import Database.PostgreSQL.Simple
+*Main Lib Database.PostgreSQL.Simple> :t connect
+connect :: ConnectInfo -> IO Connection
+
+```
+
+## First attempt (before learning stack/nix integration issues)
 
 ### Simplest case (no dependencies)
 
