@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3c7d374e97658aaf5fa398b5034bb9a289d87f83e48583e14577d3a746540e93
+-- hash: 37a1cfe86037a996f167a5bffb04ac2cc9a80b81efeb92b5e7d52d2a95699c67
 
 name:           myproj
 version:        0.1.0.0
@@ -34,6 +34,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , postgresql-simple
   default-language: Haskell2010
 
 executable myproj-exe
@@ -46,6 +47,7 @@ executable myproj-exe
   build-depends:
       base >=4.7 && <5
     , myproj
+    , postgresql-simple
   default-language: Haskell2010
 
 test-suite myproj-test
@@ -59,4 +61,5 @@ test-suite myproj-test
   build-depends:
       base >=4.7 && <5
     , myproj
+    , postgresql-simple
   default-language: Haskell2010
