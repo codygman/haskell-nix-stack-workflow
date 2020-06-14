@@ -8,6 +8,8 @@ Build works. `stack ghci` works.
 ##### Initial build:
 
 ``` sh
+[cody@nixos:~/code/haskell-nix-stack-workflow]$ git clone git@github.com:codygman/haskell-nix-stack-workflow.git
+[cody@nixos:~/code/haskell-nix-stack-workflow]$ git checkout e66a50e2be2706724174b2e7d3c5e4a884f42179
 [cody@nixos:~/code/haskell-nix-stack-workflow]$ nix build -f . myproj.components.library
 trace: To make this a fixed-output derivation but not materialized, set `stack-sha256` to the output of /nix/store/39l8cnr4ykzsp41qah7zv0v288031xh3-calculateSha
 trace: To materialize the output entirely, pass a writable path as the `materialized` argument and pass that path to /nix/store/ccwvl1maab5sj9z1kjqi0r87pcibxdzc-generateMaterialized
