@@ -1,5 +1,30 @@
-resolver: lts-16.0
+resolver: lts-15.12
 system-ghc: true
 install-ghc: false
 nix:
   enable: false
+
+extra-deps:
+  - AesonBson-0.4.0
+  - happstack-server-7.6.0
+  - HDBC-2.4.0.3
+  - HDBC-postgresql-2.3.2.7
+  - json-0.10
+
+  # We have our own custom orville package that we forked from flipstone:
+  # https://github.com/flipstone/orville
+  - git: https://github.com/EdutainmentLIVE/orville
+    commit: 8a2432891e96a547777b67a67135e235a1dce80c
+
+  # This library appears to be essentially unmaintained. The changes we've made
+  # add support for GHC 8.8.1 and fix the parsing of JPEG images.
+  - git: https://github.com/codygman/HPDF
+    commit: 31e2b887cd32661b1ac936335635be5c00216bc8
+
+  # These packages require patches that aren't yet available on Hackage. We're
+  # required to pull them from GitHub instead. If you add a package here, be
+  # sure to include a link to an upstream pull request. Once the pull request
+  # is merged and released to Hackage, we can stop using the GitHub source.
+  # <https://github.com/hdbc/convertible/pull/15>
+  - git: https://github.com/codygman/convertible
+    commit: 9e4849e143458aa3175e71bc2a8a29502272eb88

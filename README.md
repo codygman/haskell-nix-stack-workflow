@@ -1,5 +1,8 @@
 ## Current
 
+
+Debugging a complex version that adopted this. Need to try using niv like the more complicated example and see if that reproduces the "esqueleto" and other packages not being the pkg db. See check_pkgs_in_db.sh and run from within nix-shell to check.
+
 This works only after explicitly (and ironically) disabling stack's own nix support, with:
 
 ``` yaml
