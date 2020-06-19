@@ -1,12 +1,12 @@
 let
-  haskellNix = import (builtins.fetchTarball https://github.com/input-output-hk/haskell.nix/archive/master.tar.gz) {};
+  sources = import ./nix/sources.nix;
+  haskellNix = import sources."haskell.nix" {};
   nixpkgsSrc = haskellNix.sources.nixpkgs-2003;
   nixpkgsArgs = haskellNix.nixpkgsArgs;
+
 in
-{ pkgs ? import nixpkgsSrc nixpkgsArgs
-, haskellCompiler ? "ghc883"
-}:
+{ pkgs ? import nixpkgsSrc nixpkgsArgs }:
 pkgs.haskell-nix.stackProject {
-  src = pkgs.haskell-nix.haskellLib.cleanGit { name = "myproj"; src = ./.; };
-  compiler-nix-name = haskellCompiler;
+  src = pkgs.nix-gitignore.gitignoreSource [] ./.;
+  compiler-nix-name = "ghc883";
 }
