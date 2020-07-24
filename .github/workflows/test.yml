@@ -15,5 +15,5 @@ jobs:
         extraPullNames: iohk
         # Only needed for private caches
         #authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix-build -A myproj.components.exes.myproj
+    - run: nix-build -A myproj.components.exes.myproj-exe
     - run: nix-shell --run "echo OK"
