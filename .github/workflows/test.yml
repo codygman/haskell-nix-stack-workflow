@@ -8,10 +8,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2.3.1
     - uses: cachix/install-nix-action@v10
-    - uses: cachix/cachix-action@v6
+    - uses: cachix/cachix-action@4b5e2edfee9ebccb8f2fd411be0a96e3ca9ea4e2
       with:
         name: nix-stack-haskell-example
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
+        extraPullNames: iohk
         # Only needed for private caches
         #authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix-build
