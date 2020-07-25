@@ -9,4 +9,5 @@ in
 pkgs.haskell-nix.stackProject {
   src = pkgs.haskell-nix.haskellLib.cleanGit { name = "myproj"; src = ./.; };
   compiler-nix-name = haskellCompiler;
+  modules = [{ packages.myproj.components.tests.myproj-test.buildable = false; }];
 }
