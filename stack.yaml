@@ -1,4 +1,6 @@
 resolver: nightly-2021-03-19
+# https://www.stackage.org/nightly-2021-07-03/package/witch-0.3.3.0
+# 
 system-ghc: true
 install-ghc: false
 nix:
