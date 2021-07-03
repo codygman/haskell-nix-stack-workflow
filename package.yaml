@@ -36,6 +36,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - myproj
+    - alarmclock
 
 tests:
   myproj-test:

@@ -1,4 +1,4 @@
-resolver: lts-16.0
+resolver: nightly-2021-03-19
 system-ghc: true
 install-ghc: false
 nix:
