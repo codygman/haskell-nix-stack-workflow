@@ -10,11 +10,11 @@
         (final: prev: {
 
           # TODO I need to figure out how to actually use this
-          myHaskellPackages = prev.haskell.packages.${compiler}.override {
-            overrides = hpFinal: hpPrev: {
-              hspec = hpPrev.callHackage "witch" "3.3.0" {};
-            };
-          };
+          # myHaskellPackages = prev.haskell.packages.${compiler}.override {
+          #   overrides = hpFinal: hpPrev: {
+          #     hspec = hpPrev.callHackage "witch" "3.3.0" {};
+          #   };
+          # };
 
           # This overlay adds our project to pkgs
           myproj =
